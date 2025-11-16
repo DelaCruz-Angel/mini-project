@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Welcome to Impasugong!",
+        "description": "Main.",
+        "img": "https://images.ecency.com/p/C3TZR1g81UNbFzApDTmvFYJczLb7FJz3TaMfBugjAw2M2ZHdUpo6UPP8h7MgANSPz1tMfkJxWLFLNk5ApsDvBSYzhxVukksQPNGgWA2zSCpDcG2ToR1Fxm4.png?format=match&mode=fit",
+        "lat": 8.302229,
+        "lng": 125.000719
+    },
+    {
+        "name": "Mt. Kulago!",
+        "description": "Majestic.",
+        "img": "https://www.campsites.ph/uploads/images/campsite-200-mt-kulago-26748656434c9538ab476463db38294f.jpg",
+        "lat": 8.321933,
+        "lng": 125.049187
+    },
+    {
+        "name": "CEDAR!",
+        "description": "Forested.",
+        "img":"https://wanderingfeetph.com/wp-content/uploads/2021/11/dsc_0519.jpg?w=1024",
+        "lat": 8.24433,
+        "lng": 125.03692
+    },
+    {
+        "name": "Lovers Lane!",
+        "description": "Romantic.",
+        "img": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzQdrTopdyRNHJiSGkm-qJZlnQeEmLYkg4ctEGhPQE-FRd9CSvLfpGDQ_ZoD1P2gtJblgvQOGjea0KndgnlK-I3IXK5OO0s9JtthBes-X60Neb4i5_fY46GhgBPpKfZi_zUjwqe1A=s1360-w1360-h1020-rw",
+        "lat": 8.314409,
+        "lng": 125.014581
+    },
+    {
+        "name": "Communal Ranch!",
+        "description": "Expansive.",
+        "img":"https://www.escapemanila.com/wp-content/uploads/2023/09/Communal-Ranch5-768x1024.jpg",
+        "lat": 8.304968,
+        "lng": 125.029618
+    },
+    {
+        "name": "Kapayawan Falls!",
+        "description": "Refreshing.",
+        "img" : "https://lh6.googleusercontent.com/proxy/y68U99L0JqDmtBspiLlwdooOgBcBcKlcQF0uT13SOs77vXt9F4jHJ4jtsbazAckxWOLMMniVNLhbvdGU_Dyca_FwPrHUZ09lJc5iR8MlAahv_WeVAw",
+        "lat": 8.28616,
+        "lng": 125.05214
+    },
+    {
+        "name": "Panimahawa Ridge!",
+        "description": "Cloudy.",
+        "img":"https://www.lakwatsero.com/wp-content/uploads/2020/01/Panimahawa-RIdge-04.jpg",
+        "lat": 8.27770,
+        "lng": 125.04210
+    },
+    {
+        "name": "Roty Peaks",
+        "description": "Panoramic.",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZtGUcLw40GXxKRG_Dv6pHP5LNTy_uzILcmw&s",
+        "lat": 8.34451,
+        "lng": 125.03898
+    },
+    {
+        "name": "Mt. Millionaire",
+        "description": "Scenic.",
+        "img": "https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/469556779_1102785034616447_6897072069254187663_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFk4i3evg_q7qDnROwLxKenua2NXYEAmu65rY1dgQCa7lJ6SK8VIisanKna5AOAqqIme7y8iqOkuXn2xP8S3H_-&_nc_ohc=lmFEWtn5EWQQ7kNvwHqj3uq&_nc_oc=Adnp6dIoJRQ6xiFaQiqV1CHu9LxGE-PObzPYJEzrmVG_g-J9qCUOWqXYjZP2MbxRqSA&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=W_90O30Go5SO241L0DRJJw&oh=00_AfjcGAN38widagaPZjLLyh91yzMB4eGSp92ImBegM1U-DA&oe=691F3F93",
+        "lat": 8.296891,
+        "lng": 125.0170978
+    }
+]

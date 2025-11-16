@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    font-family: "Poppins", sans-serif;
+}
+
+
+.logo span {
+    color: #ffb400;
+    font-family: "Georgia", serif; 
+    font-style: italic;
+}
+
+
+
+.hero {
+    
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.45), 
+        rgba(0, 0, 0, 0.45)
+    ), 
+    url('https://images.ecency.com/p/C3TZR1g81UNbFzApDTmvFYJczLb7FJz3TaMfBugjAw2M2ZHdUpo6UPP8h7MgANSPz1tMfkJxWLFLNk5ApsDvBSYzhxVukksQPNGgWA2zSCpDcG2ToR1Fxm4.png?format=match&mode=fit'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.content {
+    color: #fff;
+    padding: 20px;
+    max-width: 700px;
+}
+
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+
+#btn {
+    background-color: #ffb400;
+    color: white;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 180, 0, 0.4);
+}
+
+#btn:hover {
+    background-color: #ffaa00;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 180, 0, 0.6);
+}
+
+
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    #btn {
+        padding: 8px 24px;
+        font-size: 0.9rem;
+    }
+}
+

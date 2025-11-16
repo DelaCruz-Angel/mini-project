@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gallery.css">
+    <title>Tourist</title>
+</head>  
+<body>
+   
+
+<nav>
+    <div class="logo">Tourist <span>Impasug-ong</span></div>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="visitor.html">Visitor Trends</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+</nav>
+
+
+<div id="gallery-container"></div>
+
+
+<footer class="footer">
+    <div class="footer-container">
+         <div class="contact-info">
+            <h3>Grace B. Racasa</h3>
+            <p>Email: <a href=" racasa.grace1@gmail.com" style="color: bisque;"> racasa.grace1@gmail.com</a></p></p>
+            <p>Phone: +63 994 454 3739/p>
+            <p>Facebook: <a href="https://www.facebook.com/grasya.gkvs" target="_blank" style="color: bisque;">https://www.facebook.com/grasya.gkvs</a></p></p></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Angel Nicole P. Dela Cruz</h3>
+            <p>Email: <a href="mobilen1cole58@gmail.com" style="color: bisque;">mobilen1cole58@gmail.com</a></p>
+            <p>Phone: +63 970 533 7694</p>
+            <p>Facebook: <a href="https://web.facebook.com/angelnicole.delacruz.161/" target="_blank" style="color: bisque;">https://web.facebook.com/angelnicole.delacruz.161/</a></p></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Abriel Mickael Bayantong</h3>
+            <p>Email: <a href="mickaelbayantong@gmail.com" style="color: bisque;">mickaelbayantong@gmail.com</a></p></p>
+            <p>Phone: +63 967 586 6648</p>
+            <p>Facebook: <a href="https://www.facebook.com/share/1BYGSZBYuB/" target="_blank" style="color: bisque;">https://www.facebook.com/share/1BYGSZBYuB/</a></p></p></p></p><br>
+        </div>
+
+    </div>
+
+    <p class="footer-bottom">&copy; 2025 Tourist Impasug-ong. All rights reserved.</p>
+</footer>
+
+
+<script >
+class TouristPlace {
+    constructor(name, description, images) {
+        this.name = name;
+        this.description = description;
+        this.images = images;
+    }
+
+    render() {
+        return `
+            <section class="place-section">
+                <div class="place-info">
+                    <h2>${this.name}</h2>
+                    <p class="description">${this.description}</p>
+                </div>
+                <div class="place-images">
+                    ${this.images.map(img => `<img src="${img}" alt="${this.name}">`).join("")}
+                </div>
+            </section>
+        `;
+    }
+}
+
+
+const places = [
+    new TouristPlace(
+        "Kapayawan Falls",
+        `A hidden waterfall surrounded by lush forest, ideal for refreshing swims and quiet nature escapes.<br>
+
+        💧 Cold natural pool<br>
+        🥾 Hiking difficulty: Easy–Moderate<br>
+        📸 Great for long-exposure waterfall shots<br>
+        🌿 Best time to visit: Dry season`,
+        [
+            "https://lh6.googleusercontent.com/proxy/y68U99L0JqDmtBspiLlwdooOgBcBcKlcQF0uT13SOs77vXt9F4jHJ4jtsbazAckxWOLMMniVNLhbvdGU_Dyca_FwPrHUZ09lJc5iR8MlAahv_WeVAw",
+        "https://scontent.fmnl9-6.fna.fbcdn.net/v/t39.30808-6/482242655_632447942882848_8270873551062562088_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHaUKPb3aeH-Tj43acg6PGEj4ITFyjcFOCPghMXKNwU4Me5BWcYdXVrAyj6xkPEpu_OMrUNXaIW7RROtkY-O3rT&_nc_ohc=uUcwav7DBVcQ7kNvwEr35lP&_nc_oc=Adl1SEG-TWY1YeGwGK5NSXLlrbwG0Nh1Gdl1cXf-nXhBCgsQg-p5KVKQTeoho_22jVY&_nc_zt=23&_nc_ht=scontent.fmnl9-6.fna&_nc_gid=eyQtIBDemh7i54_O3oJS2w&oh=00_AfiKe_E12G0dvbbA99Ncs684I2M5Kt0aARkxT5Z6IoDsTg&oe=691F4F73",
+        "https://scontent.fmnl9-1.fna.fbcdn.net/v/t39.30808-6/482356972_632449676216008_1201991667202719452_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGRMoOz_OkmluEzJtW1KLIPZYdYgHxYe61lh1iAfFh7rZiQYriV7sK2x8ABs0nHtaNslsi5I0_wyYzstoM9aNdn&_nc_ohc=xpQD2wjdPhYQ7kNvwFd-U7X&_nc_oc=AdmxoVKlxF1Rf8ZbLizWLl2jEjVTbVN3Fb0x8O9OuamNXUniiajcXEu30-OZHmTQnBQ&_nc_zt=23&_nc_ht=scontent.fmnl9-1.fna&_nc_gid=bUzwyJ5etloflFkp0M9H3w&oh=00_AfgTnFbbWaD23QzPhfe60OMGEPd7Qql5GQ1pQ6airQaiWA&oe=691F51F6" 
+
+        ]
+    ),
+
+    new TouristPlace(
+        "Mt. Millionaire",
+        `A scenic mountain peak known for its steep trail and rewarding summit overlooking the Kitanglad Range.<br>
+
+
+🌄 Sunrise & ridge views<br>
+
+🥾 Hiking Difficulty: Moderate–Hard<br>
+
+📸 Great for hikers who love summit portraits<br>
+
+⏱ Best time: Early morning climb`,
+[
+        "https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/559843909_1228078636030860_6558857167307328804_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEW5dHHL1MxDwucXOWVI8hgmtez3q5ELxaa17PerkQvFky1iyhUT-itw-OIrQy3FCiaqowXxVBv_IPajthP0j_1&_nc_ohc=i0U_QzZwzwEQ7kNvwH5s8eF&_nc_oc=AdmKbghfy2LXFtSBGmb5CZFux2xbCDg5uHnpacOQE6aYGPAMyoy-cdr7A5_izAeO4Nc&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=jAh3VpWnpcLVi0wSvh9JLQ&oh=00_AfiIUT6HF3VGJo7jBoNnb6-OFpBN6XVB5o7f3resrKKNyw&oe=691F6E50",
+        "https://scontent.fmnl9-4.fna.fbcdn.net/v/t39.30808-6/469482318_1102802761281341_5778448612370799915_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFWgX9H_svdNj2L1s0Z3ks5Qh3JQAfnNyVCHclAB-c3JYAUIKxtmuXFdnmKHDMtdr2V-N2zCpqIgfbnet7T3p6_&_nc_ohc=cpPzPowJh5IQ7kNvwFyFViq&_nc_oc=AdkBTmSGT7JAD4HrJECkmvh660FyWgbvRebm1zyExi7-p0MIEhoI0o-fiPoUnMJnDbM&_nc_zt=23&_nc_ht=scontent.fmnl9-4.fna&_nc_gid=faJx_axEPX8TQDwcpyGZAw&oh=00_AfjxWa23MPAxDLgYSt4inKe68ngNf0uCk-aQM-94tY9vSQ&oe=691F5D69",
+        "https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.6435-9/127183737_209335590628067_897584448461301583_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE2ngkVt6XGX4tx23_f1jWvpoAhnO5ouOymgCGc7mi47MzI_IIy4mtWg_afzqvqEob4FFCe5cbu-sAoC2WT1HNq&_nc_ohc=RkM7j3mFlmoQ7kNvwGhag1l&_nc_oc=AdnkBogOLY1XrDhEbRaleCvGKzP7jAbQgQBhtoH0qcHptJtU8RZD8jcfj1tc9bZu9gg&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=yfII4jtEMfNuvNdwnoXAVA&oh=00_Afgx15-CTtjPBRPwIsQ8KUvjwOGBAbsGQky6jQCuiJtKnQ&oe=694105E3",
+        "https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/487376837_1133015592171684_3132331355788111968_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFW-JFISK5EOCnwlIUT7NRKExYGVEoGrcQTFgZUSgatxLj-fjddzjlBrQ_J32anMf_2vg0wuqKgqHgwv-9v0y00&_nc_ohc=OJNPIluUBa4Q7kNvwHgGcut&_nc_oc=AdlQFOgNRIJ2Il8AY9p6CSlw3q5AiFTu9tdnmZiy6ByByWRZnWar2OgF05vi9WlJ0FI&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=fhlTKb0yotgLpBwb5cXo0w&oh=00_Afj9p0KAjdpZm95ME-XeiNoFpCQi-i34umG2ApG1kV9l6w&oe=691F49A2"
+]
+    ),
+
+    new TouristPlace(
+        "Roty Peaks",
+        `A scenic mountain viewpoint known for its rolling hills, sea of clouds, and panoramic sunrise views. <br>
+
+
+🌄 Best for sunrise viewing<br>
+
+🥾 Hiking difficulty: Easy<br>
+
+📸 Perfect for drone and landscape shots<br>
+
+⏱ Best time to visit: 5:00–7:00 AM`,
+[
+        "https://d3hukd8e3cn3kb.cloudfront.net/images/posts/rotypeaks/2.jpg",
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/85/34/2d/desayuno-con-vistas.jpg?w=1200&h=900&s=1",
+        "https://www.rotypeaks.com/wp-content/uploads/2022/10/3.png",
+         "https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/581961761_122154230252742241_462168863853212275_n.jpg?stp=cp6_dst-jpg_p526x296_tt6&_nc_cat=101&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeGwPXpZ21JzSaJbK1v6XJRiTrloM-sUFktOuWgz6xQWS19WCwUcFS-5bRz324iYNwWn4zBC0TInlJdG6V43Xg_a&_nc_ohc=NQEb0GeQLwQQ7kNvwFtAttq&_nc_oc=AdnFBhXV3X8c1G4zisBFr2vcPQKz8v3ON5cEXiwgaAURNvRIj6YwWQlNr2tavbTTnwc&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=52G_exmcXuGrb53uwqgaDA&oh=00_AfjP7oALIDWSkOk87Qg1pqtM5VarQAJWIRQlsW1ubKWVhQ&oe=691F66AA"
+]
+    ),
+
+    new TouristPlace(
+        "Communal Ranch",
+        `A vast open ranch known for horseback riding, rolling grasslands, and a Batanes-like landscape.<br>
+
+
+🐎 Horseback riding available<br>
+
+🌤 Best for wide-angle landscape shots<br>
+
+🚶 Easy walk around open fields<br>
+
+⏱ Best time: Afternoon golden hour`,
+    [
+        "https://www.campsites.ph/uploads/images/campsite-194-communal-ranch-5299372021796fc85da192caa604e9cc.jpg",
+        "https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/573627674_1292350036237850_6236151815933961660_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFm7nWo7mtAiOENWWxsidyQunrxACO5nbq6evEAI7mduo5LDPOx2SNAIeJ5LxcXwRsUa-Qahgelu7-BtlIa2nAR&_nc_ohc=M-g_lFdJS-MQ7kNvwHY722Z&_nc_oc=AdmOAHCw6hAZk1FF8PcogNEtpnOcFQpzOuwZpBmp0J5dJETt6LM75F1G_LHJL9eVLq8&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=bxxh67YsgrrSC50tyCLnFw&oh=00_AfjmxgSRptwJg9YkwP-70VsVKw-N5nohqkxTSZZnPw1JgQ&oe=691F56B8",
+        "https://campsites.ph/uploads/images/campsite-194-communal-ranch-559dc443417988920833d69508567ba5.jpg"
+]
+    ),
+
+    new TouristPlace(
+        "Lovers Lane",
+        `A quiet nature trail lined with trees, perfect for relaxed walks and peaceful sightseeing.<br>
+
+
+🌳 Shaded walking trail<br>
+
+🥾 Difficulty: Easy<br>
+
+📸 Perfect for couple or portrait shots<br>
+
+⏱ Best time: Late afternoon`,
+   [
+        "https://tse3.mm.bing.net/th/id/OIP.LGu-kYhj3nwYNknG5A2WIwHaEK?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+        "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzQdrTopdyRNHJiSGkm-qJZlnQeEmLYkg4ctEGhPQE-FRd9CSvLfpGDQ_ZoD1P2gtJblgvQOGjea0KndgnlK-I3IXK5OO0s9JtthBes-X60Neb4i5_fY46GhgBPpKfZi_zUjwqe1A=s1360-w1360-h1020-rw",
+        "https://edadventures.blog/wp-content/uploads/2024/10/Lovers-Lane-Impasug-ong-Edward-Adventures-10-2048x1152.jpg"
+]
+    ),
+
+    new TouristPlace(
+        "Panimahawa",
+        `A popular ridge hike famous for its iconic sea of clouds, grassy slopes, and wide mountain views.<br>
+
+
+🌄 Best for sunrise & sea of clouds<br>
+
+🥾 Hiking difficulty: Moderate<br>
+
+📸 Best views for drone and panoramic shots<br>
+
+⏱ Best time to visit: 4:30–7:00 AM`,
+   [
+        "https://www.lakwatsero.com/wp-content/uploads/2020/01/Panimahawa-RIdge-01.jpg",
+        "https://tse4.mm.bing.net/th/id/OIP.YElb9whJJM3XLGeBB8i5kgHaE9?cb=ucfimg2&pid=ImgDet&ucfimg=1&w=474&h=317&rs=1&o=7&rm=3",
+        "https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/568817575_1401483671986816_2520659453948831925_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF40SPDY9eUipv8UyceOvljxJAkU-zZMa_EkCRT7Nkxr82NNZUyO7SvfGsNdVm3UobqVOi9Vg0kRmwwY2ukNavp&_nc_ohc=KAvjIPxIW-8Q7kNvwGF5AJS&_nc_oc=Admz2O3TLDXYtKxFG1rKWcgdbbYTi1O64YGUnXzYviq00hgO5F3VA_zP6ihYWvGgw1M&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=5NgVgpn7a4fknqTkf4Mj7A&oh=00_AfjPTgygKZ617mucjkDEEupiuKZe5SKPhYGka7UFRn0VYA&oe=691F48C9"
+]
+    ),
+
+    new TouristPlace(
+        "CEDAR",
+        `A nature park featuring cold springs, forest trails, and the iconic Gantungan & Dila waterfalls.<br>
+
+
+💧 Multiple waterfalls to explore<br>
+
+🌿 Forest trekking trail<br>
+
+🥾 Difficulty: Easy–Moderate<br>
+
+⏱ Best time: Morning or dry season`,
+  [
+        "https://wanderingfeetph.com/wp-content/uploads/2021/11/dsc_0519.jpg?w=1024",
+        "https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/515436661_740978278668016_1847674846235285885_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFvWI7HnmqVl9ogpAi8_seYCswy6jvksfMKzDLqO-Sx85szxyeXbR74tSX_oycNRmPQ14szyN3OAidmLoPVntLw&_nc_ohc=R3WTQ7Sj0-YQ7kNvwGxON-b&_nc_oc=AdlTD9WKdd3cZrXsxd8wfYj7Ngrg20MHXsgfByvpIgb3NfOlL93Qkad8J6TpW0roMlE&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=UCtKmVE1wnAO1r-eowTEbA&oh=00_AfiS7tZucUlFl9Y410nRR_Unpn2XshDxsfyo3JPpBvlfNg&oe=691F675A",
+        "https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/516110953_740978342001343_7835392080521921077_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEOrIqiNOp-_wMmkGsHlIbXrg5BRsaO8k2uDkFGxo7yTVQGUs5Dz382Sxf02MA4PmQ-ioIWGGOaKcwvfm7VMJoN&_nc_ohc=bhcnK1lzbpIQ7kNvwH4wvn_&_nc_oc=AdkKVYQAf3CPPpnxrep8rpzp3XsJsNVqSpiZE1vyzb9hGJBWF8KO7R3CtcU_8B1UgDw&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=i-hsqT-RgD40jJH3AbnkcQ&oh=00_AfhvsvnddOa2cYcmcxVAKjwrU4l5S8Qh94rrn12YwHG-gA&oe=691F77BB"
+]
+    ),
+
+    new TouristPlace(
+        "Mt. Kulago",
+        `A famous trekking spot offering incredible 360-degree mountain views and surreal sunrise scenery.<br>
+
+
+🌄 Sunrise & sea of clouds hotspot<br>
+
+🥾 Difficulty: Moderate<br>
+
+📸 Ideal for drone and summit photos<br>
+
+🏕 Camping allowed in designated areas`,
+    [
+       "https://campsites.ph/uploads/images/campsite-200-mt-kulago-46f4f0a349ff6744cb84048431098949.jpg",
+       "https://www.campsites.ph/uploads/images/campsite-200-mt-kulago-5c6147bbc79b227211769fa56fa51b72.jpg",
+        "https://www.campsites.ph/uploads/images/campsite-200-mt-kulago-8e81f5a56bd2e21e7efefc9aa1058d75.jpg"
+ ]
+
+    ),
+
+    
+];
+
+const container = document.getElementById("gallery-container");
+container.innerHTML = places.map(place => place.render()).join("");
+
+
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Dashboard</title>
+    <link rel="stylesheet" href="visitor.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+<nav>
+    <div class="logo">Tourist <span>Impasug-ong</span></div>
+
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="visitor.html">Visitor Trends</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+</nav>
+    </header>
+    <main class="main-content">
+        <div class="cards">
+            <div class="card">
+    <h3>Roty Peaks</h3>
+    <input type="number" id="Roty Peaks" value="300">
+</div>
+
+<div class="card">
+    <h3>Kapayawan Falls</h3>
+    <input type="number" id="Kapayawan Falls" value="250">
+</div>
+
+<div class="card">
+    <h3>Panimahawa Ridge</h3>
+    <input type="number" id="Panimahawa Ridge" value="400">
+</div>
+
+<div class="card">
+    <h3>Communal Ranch</h3>
+    <input type="number" id="Communal Ranch" value="200">
+</div>
+
+<div class="card">
+    <h3>Lovers Lane</h3>
+    <input type="number" id="Lovers Lane" value="100">
+</div>
+
+<div class="card">
+    <h3>Mt. Kulago</h3>
+    <input type="number" id="Mt. Kulago" value="200">
+</div>
+
+<div class="card">
+    <h3>Mt. Millionaire</h3>
+    <input type="number" id="Mt. Millionaire" value="200">
+</div>
+
+<div class="card">
+    <h3>CEDAR</h3>
+    <input type="number" id="CEDAR" value="200">
+</div>
+
+        </div>
+        <div class="chart-container">
+            <canvas id="visitorChart"></canvas>
+        </div>
+    </main>
+
+    <footer class="footer">
+    <div class="footer-container">
+         <div class="contact-info">
+            <h3>Grace B. Racasa</h3>
+            <p>Email: <a href=" racasa.grace1@gmail.com" style="color: bisque;"> racasa.grace1@gmail.com</a></p></p>
+            <p>Phone: +63 994 454 3739/p>
+            <p>Facebook: <a href="https://www.facebook.com/grasya.gkvs" target="_blank" style="color: bisque;">https://www.facebook.com/grasya.gkvs</a></p></p></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Angel Nicole P. Dela Cruz</h3>
+            <p>Email: <a href="mobilen1cole58@gmail.com" style="color: bisque;">mobilen1cole58@gmail.com</a></p>
+            <p>Phone: +63 970 533 7694</p>
+            <p>Facebook: <a href="https://web.facebook.com/angelnicole.delacruz.161/" target="_blank" style="color: bisque;">https://web.facebook.com/angelnicole.delacruz.161/</a></p></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Abriel Mickael Bayantong</h3>
+            <p>Email: <a href="mickaelbayantong@gmail.com" style="color: bisque;">mickaelbayantong@gmail.com</a></p></p>
+            <p>Phone: +63 967 586 6648</p>
+            <p>Facebook: <a href="https://www.facebook.com/share/1BYGSZBYuB/" target="_blank" style="color: bisque;">https://www.facebook.com/share/1BYGSZBYuB/</a></p></p></p></p><br>
+        </div>
+
+    </div>
+
+    <p class="footer-bottom">&copy; 2025 Tourist Impasug-ong. All rights reserved.</p>
+</footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+     
+        let visitorData = {
+            "Roty Peaks": 300,
+    "Kapayawan Falls": 250,
+    "Panimahawa Ridge": 400,
+    "Communal Ranch": 200,
+    "Lovers Lane": 100,
+    "Mt. Kulago": 200,
+    "Mt. Millionaire": 200,
+    "CEDAR": 200
+        };
+
+       
+        const ctx = document.getElementById('visitorChart').getContext('2d');
+        let visitorChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(visitorData),
+                datasets: [{
+                    label: 'Visitor Trends',
+                    data: Object.values(visitorData),
+                    backgroundColor: ['#ffb400','#ff5733','#33ff57','#3380ff','#aa33ff','#ff33bbff','#33ffd6ff','#7d6630ff'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: 'Visitor Distribution by Tourist Spot' }
+                }
+            }
+        });
+
+        
+        function updateChart() {
+            for (let spot in visitorData) {
+                const value = Number(document.getElementById(spot).value);
+                visitorData[spot] = isNaN(value) ? 0 : value;
+            }
+
+            visitorChart.data.datasets[0].data = Object.values(visitorData);
+            visitorChart.update();
+        }
+
+        
+        Object.keys(visitorData).forEach(spot => {
+            document.getElementById(spot).addEventListener('input', updateChart);
+        });
+    </script>
+</body>
+</html>

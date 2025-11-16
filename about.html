@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="about.css">
+    <title>Tourist</title>
+</head>
+<body>
+<nav>
+    <div class="logo">Tourist <span>Impasug-ong</span></div>
+
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="visitor.html">Visitor Trends</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+</nav>
+
+<div class="weather-wrapper">
+    <div class="weather-box">
+        <h2>Current Weather</h2>
+        <p id="weatherInfo">Loading weather data for Impasug-ong...</p>
+    </div>
+</div>
+
+
+<section class="about-section">
+    <h2>About Impasug-ong</h2>
+    <p>
+        Welcome to Impasug-ong, Bukidnon—a hidden paradise where nature’s beauty is around every corner! From sparkling waterfalls to rolling green hills, this charming town is a playground for adventure seekers, nature lovers, and anyone looking to escape the hustle and bustle of city life.
+
+Explore scenic trails, snap photos at breathtaking viewpoints, and immerse yourself in the vibrant local culture. Impasug-ong isn’t just about sights—it’s about experiences, from meeting friendly locals to discovering secret spots that make every visit special.
+
+Whether you’re planning a relaxing getaway or an action-packed adventure, Impasug-ong has something for everyone. Let your curiosity guide you, follow our maps to the best attractions, and make memories that you’ll want to come back for again and again.
+
+Come and see why Impasug-ong, Bukidnon, is the perfect mix of fun, adventure, and natural beauty—your next favorite destination is waiting!
+    </p>
+</section>
+
+
+<div class="gallery">
+    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ea/cd/86/balisbisan-falls.jpg?w=1400&h=800&s=1" alt="Tourist Spot 1">
+    <img src="https://riley.ph/wp-content/uploads/2018/07/bukidnon-impasugong-panimahawa-ridge-30-5.jpg" alt="Tourist Spot 2">
+    <img src="https://mirror.pia.gov.ph/uploads/2023/04/0bf3855667a565dafdd344e385ebfcfd-800-1200.jpg" alt="Tourist Spot 3">
+</div>
+
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="contact-info">
+            <h3>Grace B. Racasa</h3>
+            <p>Email: <a href=" racasa.grace1@gmail.com" style="color: bisque;"> racasa.grace1@gmail.com</a></p></p>
+            <p>Phone: +63 994 454 3739/p>
+            <p>Facebook: <a href="https://www.facebook.com/grasya.gkvs" target="_blank" style="color: bisque;">https://www.facebook.com/grasya.gkvs</a></p></p></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Angel Nicole P. Dela Cruz</h3>
+            <p>Email: <a href="mobilen1cole58@gmail.com" style="color: bisque;">mobilen1cole58@gmail.com</a></p>
+            <p>Phone: +63 970 533 7694</p>
+            <p>Facebook: <a href="https://web.facebook.com/angelnicole.delacruz.161/" target="_blank" style="color: bisque;">https://web.facebook.com/angelnicole.delacruz.161/</a></p></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Abriel Mickael Bayantong</h3>
+            <p>Email: <a href="mickaelbayantong@gmail.com" style="color: bisque;">mickaelbayantong@gmail.com</a></p></p>
+            <p>Phone: +63 967 586 6648</p>
+            <p>Facebook: <a href="https://www.facebook.com/share/1BYGSZBYuB/" target="_blank" style="color: bisque;">https://www.facebook.com/share/1BYGSZBYuB/</a></p></p></p></p><br>
+        </div>
+
+    </div>
+
+    <p class="footer-bottom">&copy; 2025 Tourist Impasug-ong. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+</script>
+
+
+<script>
+async function loadWeather() {
+    const apiKey = "a086e741534d42a385c31855251511";
+    const location = "Impasug-ong";
+
+    try {
+        const res = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`);
+        const data = await res.json();
+
+        document.getElementById("weatherInfo").innerHTML = `
+            <img src="https:${data.current.condition.icon}" style="width:60px;">
+            <br>
+            <strong>${data.current.temp_c}°C</strong> — ${data.current.condition.text}
+        `;
+    } catch {
+        document.getElementById("weatherInfo").innerHTML = "Unable to load weather data.";
+    }
+}
+
+loadWeather();
+setInterval(loadWeather, 600000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <title>Map</title>
+ 
+</head>
+<body>
+<nav>
+    <div class="logo">Tourist <span>Impasug-ong</span></div>
+
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="visitor.html">Visitor Trends</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+</nav>
+
+  <div class="map-container">
+    <div id="map"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+         <div class="contact-info">
+            <h3>Grace B. Racasa</h3>
+            <p>Email: <a href=" racasa.grace1@gmail.com" style="color: bisque;"> racasa.grace1@gmail.com</a></p></p>
+            <p>Phone: +63 994 454 3739/p>
+            <p>Facebook: <a href="https://www.facebook.com/grasya.gkvs" target="_blank" style="color: bisque;">https://www.facebook.com/grasya.gkvs</a></p></p></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Angel Nicole P. Dela Cruz</h3>
+            <p>Email: <a href="mobilen1cole58@gmail.com" style="color: bisque;">mobilen1cole58@gmail.com</a></p>
+            <p>Phone: +63 970 533 7694</p>
+            <p>Facebook: <a href="https://web.facebook.com/angelnicole.delacruz.161/" target="_blank" style="color: bisque;">https://web.facebook.com/angelnicole.delacruz.161/</a></p></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Abriel Mickael Bayantong</h3>
+            <p>Email: <a href="mickaelbayantong@gmail.com" style="color: bisque;">mickaelbayantong@gmail.com</a></p></p>
+            <p>Phone: +63 967 586 6648</p>
+            <p>Facebook: <a href="https://www.facebook.com/share/1BYGSZBYuB/" target="_blank" style="color: bisque;">https://www.facebook.com/share/1BYGSZBYuB/</a></p></p></p></p><br>
+        </div>
+
+    </div>
+
+    <p class="footer-bottom">&copy; 2025 Tourist Impasug-ong. All rights reserved.</p>
+</footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+
+    var map = L.map('map').setView([8.30379, 125.00103], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    
+    fetch("map.json")
+  .then(res => res.json())
+  .then(data => {
+    data.forEach(pin => {
+      const marker = L.marker([pin.lat, pin.lng]).addTo(map);
+
+     
+      const img = pin.img ? `<img src="${pin.img}" class="popup-image"><br>` : '';
+
+      
+      const mapsLink = `<a href="https://www.google.com/maps?q=${pin.lat},${pin.lng}" target="_blank">Open in Google Maps</a>`;
+
+      
+      marker.bindPopup(`${img}<b>${pin.name}</b><br>${pin.description}<br>${mapsLink}`);
+    });
+  })
+  .catch(err => console.error("Error loading JSON:", err));
+
+  </script>
+
+</body>
+</html>
